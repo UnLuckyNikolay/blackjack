@@ -38,13 +38,13 @@ namespace MyApp
 
             Console.WriteLine(" Welcome to the game of Blackjack.\n In this game 2 players try to collect cards worth 21 points without going over.\n");
             Console.Write(" Player 1, write you name (leave empty for default): ");
-            string nameChange = Console.ReadLine();
+            string nameChange = Console.ReadLine() ?? "Player 1";
             if (nameChange != "")
             {
                 PublicVar.playerName[1] = nameChange;
             }
             Console.Write("\n Player 2, write you name (leave empty for default): ");
-            nameChange = Console.ReadLine();
+            nameChange = Console.ReadLine() ?? "Player 2";
             if (nameChange != "")
             {
                 PublicVar.playerName[2] = nameChange;
@@ -104,7 +104,7 @@ namespace MyApp
                     else  // Asking players for cards
                     {
                         Console.Write(" {0}, do you want to take another card? (yes/no): ", PublicVar.playerName[PublicVar.playerCurrent]);
-                        answerAnotherCard = Console.ReadLine();
+                        answerAnotherCard = Console.ReadLine() ?? "";
                     }
                     switch (answerAnotherCard) 
                     {
@@ -222,7 +222,7 @@ namespace MyApp
 
                 // Another round?
                 Console.Write("\n Do you want to play another round? (yes/no): ");
-                string answerAnotherRound = Console.ReadLine();
+                string answerAnotherRound = Console.ReadLine() ?? "";
                 bool answerAnotherRoundLooping = true;
                 while (answerAnotherRoundLooping == true)
                 {
@@ -249,7 +249,7 @@ namespace MyApp
                         default:
                             RewriteInfoMain();
                             Console.Write(" Answer unrecognized. One more round? (yes/no): ");
-                            answerAnotherRound = Console.ReadLine();
+                            answerAnotherRound = Console.ReadLine() ?? "";
                             break;
                     }
                 }
